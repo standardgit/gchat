@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @messages.each do |message| %>
+            <tr>
+                <th><%= message.title %></th>
+                <th><%= message.content %></th>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
