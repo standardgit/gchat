@@ -3,7 +3,19 @@
         <%= link_to 'New Message', new_message_path, class: "btn btn-success" %>
     </div>
     <div class="col-md-8">
-        <%= render 'messages/message' %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @messages.each do |message| %>
+                    <%= render 'messages/message', message: message %>
+                <% end %>
+            </tbody>
+        </table>
     </div>
     <div class="col-md">
 </div>
