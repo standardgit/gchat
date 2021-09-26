@@ -18,6 +18,7 @@ gem 'webpacker', '~> 4.0'
 # Bootstrap for the View
 gem 'bootstrap', '~> 5.0.2'
 gem 'simple_form', '~> 5.1'
+gem 'devise', '~> 4.8'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
