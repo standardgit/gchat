@@ -1,9 +1,13 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
+  before_action do
+    @conversation = Conversation.find(params[conversation_id])
+  end
 
   # GET /messages or /messages.json
   def index
-    @messages = Message.all
+    @messages = @conversation.messages
+    @message = @conversation.messages.new
   end
 
   # GET /messages/1 or /messages/1.json
@@ -12,7 +16,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    @message = @conversation.messages.new
   end
 
   # GET /messages/1/edit
@@ -22,7 +26,7 @@ class MessagesController < ApplicationController
   # POST /messages or /messages.json
   def create
     
-    @message = Message.new(message_params)
+    @message = @conversation.messages.new(message_params)
 
     respond_to do |format|
       if @message.save
@@ -65,6 +69,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:title, :content, :body :id)
+      params.require(:message).permit(:title, :content, :body :id, :user_id)
     end
 end
