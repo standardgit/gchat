@@ -7,8 +7,8 @@ class ConversationsController < ApplicationController
     end
 
     def create
-        if Conversation.between(conversation_params).present?
-            @conversation = Conversation.between(conversation_params).first
+        if Conversation.between(params[sender_id], params[recipient_id]).present?
+            @conversation = Conversation.between(params[sender_id], params[recipient_id]).first
         else
             @conversation = Conversation.create!(conversation_params)
         end

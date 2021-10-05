@@ -1,13 +1,13 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
-  before_action do
-    @conversation = Conversation.find(params[conversation_id])
-  end
+  # before_action do
+  #   @conversation = Conversation.find(params[conversation_id])
+  # end
 
   # GET /messages or /messages.json
   def index
-    @messages = @conversation.messages
-    @message = @conversation.messages.new
+    #@messages = @conversation.messages
+    @messages = Message.all
   end
 
   # GET /messages/1 or /messages/1.json
@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = @conversation.messages.new
+    @message = Message.new
   end
 
   # GET /messages/1/edit
@@ -25,8 +25,14 @@ class MessagesController < ApplicationController
 
   # POST /messages or /messages.json
   def create
-    
-    @message = @conversation.messages.new(message_params)
+    @recipient = User.find_by(email: @params[:recipient]);
+    @conversation = Conversation.between()
+    if Conversation.between(@recipient.id, current_user_id).present?
+      @conversation = Conversation.between(@recipient.id, current_user_id).first
+     else
+      @conversation = Conversation.create!(recipient: @recipient,sender: current_user);
+     end
+     @message = Message.new(message_params.merge!(conversation: @conversation))
 
     respond_to do |format|
       if @message.save
@@ -69,6 +75,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:title, :content, :body :id, :user_id)
+      params.require(:message).permit(:title, :content, :body, :id)
     end
 end
