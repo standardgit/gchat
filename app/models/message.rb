@@ -5,5 +5,5 @@ class Message < ApplicationRecord
     
     validates :title, presence: true
     validates :content, presence: true, length: { :minimum => 5 }
-    validates_presence_of :body, :conversation_id :user_id
+    validates_presence_of :body, :conversation_id, :user_id
 end
