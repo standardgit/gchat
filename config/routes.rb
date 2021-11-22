@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  resources :rooms
-  devise_for :users
-  resources :conversations
-  resources :messages
 
-  # get 'home/index'
-  root 'home#index'
+  resources :messages
+  resources :rooms
+
+   root 'rooms#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
