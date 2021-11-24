@@ -14,6 +14,9 @@ class MessagesTest < ApplicationSystemTestCase
     visit messages_url
     click_on "New Message"
 
+    fill_in "Content", with: @message.content
+    fill_in "Room", with: @message.room_id
+    fill_in "User", with: @message.user_id
     click_on "Create Message"
 
     assert_text "Message was successfully created"
@@ -24,6 +27,9 @@ class MessagesTest < ApplicationSystemTestCase
     visit messages_url
     click_on "Edit", match: :first
 
+    fill_in "Content", with: @message.content
+    fill_in "Room", with: @message.room_id
+    fill_in "User", with: @message.user_id
     click_on "Update Message"
 
     assert_text "Message was successfully updated"
