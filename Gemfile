@@ -25,7 +25,7 @@ gem 'redis', '~> 4.0'
 
 gem 'bootstrap', '~> 5.1.3'
 
-
+gem 'simple_form'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
