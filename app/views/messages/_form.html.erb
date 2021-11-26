@@ -5,9 +5,9 @@
 
   <div class="form-inputs">
     <%= f.input :content %>
-    <%= f.association :user %>
-    <%= f.association :room %>
   </div>
+
+  <%= f.hidden_field :room_id, value: @room.id %>
 
   <div class="form-actions">
     <%= f.button :submit %>
