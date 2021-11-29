@@ -24,6 +24,7 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap', '~> 5.1.3'
+gem 'jquery-rails'
 
 gem 'simple_form'
 # Use Active Storage variant

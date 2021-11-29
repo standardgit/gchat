@@ -10,9 +10,6 @@
           <div class="card mb-2">
             <div class="card-body">
               <%= room.name %>
-              <div class="chat-box">
-                <%= render "messages/form", message: Message.new, room: @room %>
-              </div>
             </div>
           </div>
         <% end %>
@@ -24,6 +21,9 @@
         <% @room.messages.each do |message| %>
           <p><%= message.content %></p>
         <% end %>
+        <div class="chat-box">
+                <%= render "messages/form", message: Message.new, room: @room %>
+              </div>
       <% end %>
     </div>
   </div>

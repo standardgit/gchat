@@ -1,3 +1,9 @@
 .chat-room {
     background-color: black;
+    overflow-y: hidden;
+}
+
+.chat-box {
+    position: absolute;
+    bottom: 0;
 }
