@@ -19,12 +19,14 @@
       <% if @room.present? %>
         <p><%= @room.name %></p>
         <% @room.messages.each do |message| %>
-          <div class="message" <% 'me' if message.user == current_user %>>
-            <div class="content">
-              <%= message.content %>
-            </div>
-             <div class="author">
-              <%= message.user.username %>
+          <div class="message mb-3" <% 'me' if message.user == current_user %>>
+            <div class="content-container">
+              <div class="content">
+                <%= message.content %>
+              </div>
+              <div class="author">
+                <%= message.user.username %>
+              </div>
             </div>
           </div>
         <% end %>

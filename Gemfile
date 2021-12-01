@@ -25,6 +25,7 @@ gem 'redis', '~> 4.0'
 
 gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
+gem 'actiontext', '~> 6.1', '>= 6.1.4.1'
 
 gem 'simple_form'
 # Use Active Storage variant
