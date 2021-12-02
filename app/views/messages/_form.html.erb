@@ -6,7 +6,7 @@
   <%= f.hidden_field :room_id, value: @room.id %>
 
   <div class="input-group">
-    <%= f.input :content, placeholeder: "Type your message here", class: "form-control mr-2" %>
+    <%= f.rich_text_area :content, placeholeder: "Type your message here", class: "form-control mr-2" %>
     <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
