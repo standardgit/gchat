@@ -43,7 +43,30 @@
     }
 }
 
+.card .no-outline {
+    border: none;
+}
 
+.room-link {
+    &.hover {
+        text-decoration: none;
+    }
+    .room-card {
+        &.hover {
+            background-color: #eeeeee;
+            border-radius: 20px;
+        }
+        .name {
+            font-weight: bold;
+            color: black;
+        }
+
+        .member-counter {
+            color: #777777;
+            font-weight: light;
+        }
+    } 
+}
 
 
 
